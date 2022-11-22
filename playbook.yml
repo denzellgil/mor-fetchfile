@@ -1,0 +1,8 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+     - name: Fetch file from client to server
+       run_once: yes
+       fetch: src=/tmp/mor.txt dest=~/mor-fetchfile/ flat=yes
+       when: ansible_distribution == "Ubuntu"
